@@ -5,15 +5,25 @@
   
 
   
-  <title>极简即美</title>
+  <title>基于RabbitMQ的可复用的事务消息方案 | 极简即美</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="极简即美">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="什么是事务性消息  可以认为是一个确保分布式系统中的最终一致性的两阶段提交（two-phase commit ）的消息实现。事务性消息确保本地事务的执行和消息的发送是一个原子性操作。  先扔一张图片欣赏下  我们要达到可复用的事务性消息至少要满足以下特点：1、消息发送确认机制2、消息接受确认机制3、消息重投4、消费幂等性5、RabbitMQ 持久化  等等 事务消息原则上只适合弱一致性（或者说最">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于RabbitMQ的可复用的事务消息方案">
+<meta property="og:url" content="http://yoursite.com/2020/05/24/基于RabbitMQ的可复用的事务消息方案/index.html">
 <meta property="og:site_name" content="极简即美">
+<meta property="og:description" content="什么是事务性消息  可以认为是一个确保分布式系统中的最终一致性的两阶段提交（two-phase commit ）的消息实现。事务性消息确保本地事务的执行和消息的发送是一个原子性操作。  先扔一张图片欣赏下  我们要达到可复用的事务性消息至少要满足以下特点：1、消息发送确认机制2、消息接受确认机制3、消息重投4、消费幂等性5、RabbitMQ 持久化  等等 事务消息原则上只适合弱一致性（或者说最">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2020/05/24/基于RabbitMQ的可复用的事务消息方案/rabbit-pic1.PNG">
+<meta property="og:image" content="http://yoursite.com/2020/05/24/基于RabbitMQ的可复用的事务消息方案/rabbit-pic2.PNG">
+<meta property="og:image" content="http://yoursite.com/2020/05/24/基于RabbitMQ的可复用的事务消息方案/rabbit-pic4.PNG">
+<meta property="og:image" content="http://yoursite.com/2020/05/24/基于RabbitMQ的可复用的事务消息方案/rabbit-pic3.PNG">
+<meta property="og:image" content="http://yoursite.com/2020/05/24/基于RabbitMQ的可复用的事务消息方案/rabbit-pic5.PNG">
+<meta property="og:updated_time" content="2020-05-25T18:34:43.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="极简即美">
+<meta name="twitter:title" content="基于RabbitMQ的可复用的事务消息方案">
+<meta name="twitter:description" content="什么是事务性消息  可以认为是一个确保分布式系统中的最终一致性的两阶段提交（two-phase commit ）的消息实现。事务性消息确保本地事务的执行和消息的发送是一个原子性操作。  先扔一张图片欣赏下  我们要达到可复用的事务性消息至少要满足以下特点：1、消息发送确认机制2、消息接受确认机制3、消息重投4、消费幂等性5、RabbitMQ 持久化  等等 事务消息原则上只适合弱一致性（或者说最">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/24/基于RabbitMQ的可复用的事务消息方案/rabbit-pic1.PNG">
   
     <link rel="alternate" href="/atom.xml" title="极简即美" type="application/atom+xml">
   
@@ -60,9 +70,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-基于RabbitMQ的可复用的事务消息方案" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-基于RabbitMQ的可复用的事务消息方案" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/24/基于RabbitMQ的可复用的事务消息方案/" class="article-date">
   <time datetime="2020-05-24T08:44:40.683Z" itemprop="datePublished">2020-05-24</time>
@@ -75,8 +83,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/24/基于RabbitMQ的可复用的事务消息方案/">基于RabbitMQ的可复用的事务消息方案</a>
+    <h1 class="article-title" itemprop="name">
+      基于RabbitMQ的可复用的事务消息方案
     </h1>
   
 
@@ -153,97 +161,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Rabbit MQ之AMQP 0-9-1协议" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/13/Rabbit MQ之AMQP 0-9-1协议/" class="article-date">
-  <time datetime="2019-10-13T14:35:47.865Z" itemprop="datePublished">2019-10-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/13/Rabbit MQ之AMQP 0-9-1协议/">this is my first blog</a>
-    </h1>
+    <a href="/2019/10/13/Rabbit MQ之AMQP 0-9-1协议/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">this is my first blog</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>dwefwewefwefwefwfwefss</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/13/Rabbit MQ之AMQP 0-9-1协议/" data-id="ckamuf9z40001xcv0yra3oq2h" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/30/hello-world/" class="article-date">
-  <time datetime="2019-08-29T16:05:21.402Z" itemprop="datePublished">2019-08-30</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/30/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/30/hello-world/" data-id="ckamuf9z80002xcv0ep0ygbku" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
